@@ -3,7 +3,7 @@ const app = express.Router();
 const bcrypt = require("bcrypt");
 const connection = require("../db/db.js");
 const jwt = require("jsonwebtoken");
-const auth = require("../middleware/auth.js");
+//const auth = require("../middleware/auth.js");
 
 // Salt rounds for hashing password
 const saltRounds = 12;
@@ -93,7 +93,7 @@ app.post("/user/signup", function(req, res) {
 					}
 					//var id = results.insertId;
 					//var privateKey = "test";
-					res.send(200);
+					res.sendStatus(200);
 				});
 			});
 		}
