@@ -9,7 +9,7 @@ app.use(users);
 app.use(function(req, res, next) {
 	res.status(404);
 	res.json("404 not found");
-	console.log("test");
+	console.log("404 not found");
 });
 
 module.exports = app;
