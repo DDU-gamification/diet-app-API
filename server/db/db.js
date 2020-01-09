@@ -15,11 +15,17 @@ connection.connect(function(err) {
 	}
 });
 
-// TODO imporve this!
-const sql = require("./create-tables.js");
+const createDB = require("./create-tables.js");
 
-connection.query(sql, function(err, results) {
-	if (err) throw err;
-});
+const sql = createDB.sql();
+
+// Loop through every tables and creates them
+for (var key in sql) {
+	connection.query(sql[key], function(err) {
+		if (err) {
+			throw err;
+		}
+	});
+}
 
 module.exports = connection;
