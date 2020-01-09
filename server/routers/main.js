@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express.Router();
 const multer = require("multer");
-var upload = multer({ dest: "images/" })
+var upload = multer({ dest: "images/" });
 
 const users = require("./users.js");
 
@@ -15,8 +15,8 @@ app.post("/img", upload.single("image"), function(req, res) {
 
 // 404 not found
 app.use(function(req, res, next) {
-	res.json({"error": "404 not found"}).status(404);
-	console.log("404 not found");
+	res.json({"error": "404 \"" + req.url + "\" not found"}).status(404);
+	console.log("404 \"" + req.url + "\" not found");
 	next();
 });
 
