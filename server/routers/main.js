@@ -4,8 +4,9 @@ const multer = require("multer");
 var upload = multer({ dest: "images/" });
 
 const users = require("./users.js");
+const dishes = require("./dishes.js");
 
-app.use(users);
+app.use(users, dishes);
 
 app.post("/img", upload.single("image"), function(req, res) {
 	console.log(req.file);
